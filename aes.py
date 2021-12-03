@@ -22,7 +22,7 @@ class AESCipher(object):
         enc = base64.b64decode(enc)
         iv = b'\xdeN\xafedf\xf1dX\x16r\x99\xa1\x04\x9d\xa0'
         cipher = AES.new(self.key, AES.MODE_CBC, iv)
-        return cipher.decrypt(enc[AES.block_size:]).decode('utf-8')+"We are a family"
+        return cipher.decrypt(enc[AES.block_size:]).decode('utf-8')
 
     def _pad(self, s):
         return s + ((self.bs - len(s) % self.bs) * chr(self.bs - len(s) % self.bs)).encode()
